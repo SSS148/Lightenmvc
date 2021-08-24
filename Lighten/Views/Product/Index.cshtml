@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Lighten.Models.Products>
+
+@{ ViewData["LightCompany"] = "Home"; }
+@{ Layout = "_Layout"; }
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.LightModel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LightCompany)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LightType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+<tr>
+    <td>
+        <a asp-action="AddItem" asp-route-id="@item.Id" type="button" class="btn btn-warning">Click For Get Light</a>
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LightModel)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LightCompany)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LightType)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Price)
+    </td>
+</tr>}
+    </tbody>
+</table>
